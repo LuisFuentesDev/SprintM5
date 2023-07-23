@@ -22,15 +22,16 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
     override fun getItemCount(): Int {
         return zapatilla.size
     }
-    fun setData(zapatillas: List<Zapatillas>) {
+    fun setData(zapatillas: List<Zapatilla>) {
         this.zapatilla = zapatilla.toMutableList()
     }
 
     class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(zapatilla: Zapatilla) {
-            binding.tvNombreZapatilla.text = zapatilla.nombre
-            binding.tvModeloZapatilla.text = zapatilla.modelo
+            binding.tvNombreZapatilla.text = zapatilla.modelo
+            binding.tvModeloZapatilla.text = zapatilla.tipo
             binding.tvPrecioZapatilla.text = zapatilla.precio.toString()
+
         }
 
     }
