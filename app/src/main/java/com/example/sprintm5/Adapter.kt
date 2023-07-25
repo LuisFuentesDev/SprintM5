@@ -10,7 +10,7 @@ import coil.load
 import com.example.sprintm5.databinding.ItemLayoutBinding
 
 class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
-    var ListZapatillas = mutableListOf<ListZapatillas>()
+    var ListZapatillas = mutableListOf<zapato>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolder {
@@ -27,12 +27,12 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
         return ListZapatillas.size
     }
 
-    fun setData(listazapatoes: List<ListZapatillas>) {
+    fun setData(listazapatoes: List<zapato>) {
         ListZapatillas = listazapatoes.toMutableList()
     }
 
     inner class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListZapatillas) {
+        fun bind(item: zapato) {
 
             binding.txtNombre.text = item.nombre
             binding.txtPrecio.text = item.precio.toString()

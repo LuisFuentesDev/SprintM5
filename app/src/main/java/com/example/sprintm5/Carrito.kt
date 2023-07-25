@@ -24,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 interface Eliminar {
-    fun eliminar(shoe: ListZapatillas)
+    fun eliminar(shoe: zapato)
 }
 
 class Carrito : Fragment(), Eliminar {
@@ -75,9 +75,9 @@ class Carrito : Fragment(), Eliminar {
         }
 
     }
-    fun getList(): MutableList<ListZapatillas> {
+    fun getList(): MutableList<zapato> {
         val jsonString = mSharedPreferences.getString("mi lista", null)
-        val listType = object : TypeToken<MutableList<ListZapatillas>>() {}.type
+        val listType = object : TypeToken<MutableList<zapato>>() {}.type
         return gson.fromJson(jsonString, listType) ?: mutableListOf()
     }
 
@@ -101,7 +101,7 @@ class Carrito : Fragment(), Eliminar {
             }
     }
 
-    override fun eliminar(shoe: ListZapatillas) {
+    override fun eliminar(shoe: zapato) {
         val zapatoslista = getList()
         zapatoslista.remove(shoe)
 

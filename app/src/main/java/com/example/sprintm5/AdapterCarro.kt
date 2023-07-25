@@ -9,7 +9,7 @@ import com.example.sprintm5.databinding.ItemCarritoBinding
 import com.google.gson.Gson
 
 class AdapterCarro(val eliminar: Eliminar) : RecyclerView.Adapter<AdapterCarro.ViewHolder>() {
-    var ListZapatillas = mutableListOf<ListZapatillas>()
+    var ListZapatillas = mutableListOf<zapato>()
 
     private lateinit var mSharedPreferences: SharedPreferences
     private lateinit var gson: Gson
@@ -32,13 +32,13 @@ class AdapterCarro(val eliminar: Eliminar) : RecyclerView.Adapter<AdapterCarro.V
         return ListZapatillas.size
     }
 
-    fun setData(listazapatoes: List<ListZapatillas>) {
+    fun setData(listazapatoes: List<zapato>) {
         ListZapatillas = listazapatoes.toMutableList()
     }
 
     inner class ViewHolder(val binding: ItemCarritoBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListZapatillas) {
+        fun bind(item: zapato) {
 
             binding.txtNombreItem.text = item.nombre
             binding.txtPrecioItem.text = item.precio.toString()

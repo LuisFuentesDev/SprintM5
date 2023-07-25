@@ -30,7 +30,7 @@ class Detalle : Fragment(), IviewPresenter {
     private lateinit var binging: FragmentDetalleBinding
     private lateinit var mSharedPreferences: SharedPreferences
     private lateinit var gson: Gson
-    private lateinit var zapatoslista: MutableList<ListZapatillas>
+    private lateinit var zapatoslista: MutableList<zapato>
     val bundle = Bundle()
 
     // TODO: Rename and change types of parameters
@@ -85,7 +85,7 @@ class Detalle : Fragment(), IviewPresenter {
             var nombre = param1.toString()
             var precio = param2.toString().toInt()
             var img = param3.toString()
-            val zp = ListZapatillas(nombre, img, precio)
+            val zp = zapato(nombre, img, precio)
 
             zapatoslista.add(zp)
 
@@ -103,9 +103,9 @@ class Detalle : Fragment(), IviewPresenter {
         }
     }
 
-    fun getList(): MutableList<ListZapatillas> {
+    fun getList(): MutableList<zapato> {
         val jsonString = mSharedPreferences.getString("mi lista", null)
-        val listType = object : TypeToken<MutableList<ListZapatillas>>() {}.type
+        val listType = object : TypeToken<MutableList<zapato>>() {}.type
         return gson.fromJson(jsonString, listType) ?: mutableListOf()
     }
 
@@ -130,7 +130,7 @@ class Detalle : Fragment(), IviewPresenter {
             }
     }
 
-    override fun guardarData(data: MutableList<ListZapatillas>) {
+    override fun guardarData(data: MutableList<zapato>) {
         zapatoslista = data
     }
 

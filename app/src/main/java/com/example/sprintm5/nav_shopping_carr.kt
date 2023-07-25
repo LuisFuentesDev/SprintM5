@@ -57,9 +57,9 @@ class nav_shopping_carr : Fragment() {
             Navigation.findNavController(requireView()).navigate(R.id.action_nav_shopping_carr_to_carrito)
         }
         val adapter = Adapter()
-        val zapatillas = zapatillas()
+        val zapatos = zapatos()
 
-        val listaZapatos = zapatillas.returnShoeList()
+        val listaZapatos = zapatos.returnShoeList()
         adapter.setData(listaZapatos)
         binging.recyclerView.adapter =adapter
     }

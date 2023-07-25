@@ -3,15 +3,15 @@ package com.example.sprintm5
 import android.content.SharedPreferences
 
 class Model {
-    private lateinit var ListZapatillas:MutableList<ListZapatillas>
+    private lateinit var zapatos:MutableList<zapato>
     private lateinit var mSharedPreferences: SharedPreferences
-    fun guardarData (ListZapatillas: ListZapatillas):MutableList<ListZapatillas>{
-        ListZapatillas.add(ListZapatillas)
-        return ListZapatillas
+    fun guardarData (zapato: zapato):MutableList<zapato>{
+        zapatos.add(zapato)
+        return zapatos
     }
-    fun eliminarData(ListZapatillas: ListZapatillas):MutableList<ListZapatillas>{
-        ListZapatillas.remove(ListZapatillas)
-        return ListZapatillas
+    fun eliminarData(zapato: zapato):MutableList<zapato>{
+        zapatos.remove(zapato)
+        return zapatos
     }
 
 }
