@@ -1,10 +1,12 @@
 package com.example.sprintm5
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.sprintm5.databinding.FragmentNavShoppingCarrBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -13,11 +15,12 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
+ * Use the [nav_shopping_carr.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class nav_shopping_carr : Fragment() {
     // TODO: Rename and change types of parameters
+    private lateinit var binging: FragmentNavShoppingCarrBinding
     private var param1: String? = null
     private var param2: String? = null
 
@@ -34,7 +37,31 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        binging = FragmentNavShoppingCarrBinding.inflate(layoutInflater)
+        initListener()
+        return binging.root
+    }
+
+    private fun initListener() {
+
+        /* binging.imgCarrito.setOnClickListener(View.OnClickListener {
+             findNavController(requireView()).navigate(
+                 R.id.action_nav_shopping_carr_to_carrito
+             )
+         })
+
+         */
+
+        binging.imgCarrito.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.action_nav_shopping_carr_to_carrito)
+        }
+        val adapter = Adapter()
+        val zapatillas = zapatillas()
+
+        val listaZapatos = zapatillas.returnShoeList()
+        adapter.setData(listaZapatos)
+        binging.recyclerView.adapter =adapter
     }
 
     companion object {
@@ -44,12 +71,12 @@ class HomeFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
+         * @return A new instance of fragment nav_shopping_carr.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
+            nav_shopping_carr().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

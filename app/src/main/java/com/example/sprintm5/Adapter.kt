@@ -1,38 +1,50 @@
 package com.example.sprintm5
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sprintm5.Adapter.ViewHolder
+import coil.load
+
 import com.example.sprintm5.databinding.ItemLayoutBinding
 
-class Adapter : RecyclerView.Adapter<ViewHolder>() {
+class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
+    var ListZapatillas = mutableListOf<ListZapatillas>()
 
-    var zapatilla = mutableListOf<Zapatilla>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolder {
+        var binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = zapatilla[position]
+    override fun onBindViewHolder(holder: Adapter.ViewHolder, position: Int) {
+        val item = ListZapatillas[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return zapatilla.size
-    }
-    fun setData(zapatillas: List<Zapatilla>) {
-        this.zapatilla = zapatilla.toMutableList()
+        return ListZapatillas.size
     }
 
-    class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(zapatilla: Zapatilla) {
-            binding.tvNombreZapatilla.text = zapatilla.modelo
-            binding.tvModeloZapatilla.text = zapatilla.tipo
-            binding.tvPrecioZapatilla.text = zapatilla.precio.toString()
+    fun setData(listazapatoes: List<ListZapatillas>) {
+        ListZapatillas = listazapatoes.toMutableList()
+    }
 
+    inner class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: ListZapatillas) {
+
+            binding.txtNombre.text = item.nombre
+            binding.txtPrecio.text = item.precio.toString()
+            binding.imgZapato.load(item.url)
+            val bundle = Bundle()
+            bundle.putString("nombre", item.nombre)
+            bundle.putString("precio", item.precio.toString())
+            bundle.putString("url", item.url)
+            binding.cardview.setOnClickListener {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_nav_shopping_carr_to_detalle, bundle)
+            }
         }
-
     }
 }
