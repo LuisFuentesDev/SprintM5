@@ -13,7 +13,6 @@ class zapatos {
         shoeList.add(shoeItem4)
         val shoeItem5 = zapato("AX2S", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eb33816f470142c6870bad57013617e9_9366/Zapatillas_de_Senderismo_adidas_AX2S_Verde_GY8311_01_standard.jpg", 69990)
         shoeList.add(shoeItem5)
-
         val shoeItem6 = zapato("EQ21 RUN", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8b089f58da5546b8bb39aedf00f4b50f_9366/Zapatillas_EQ21_Run_Blanco_GY2208_01_standard.jpg", 59990)
         shoeList.add(shoeItem6)
         val shoeItem7 = zapato("DAME EXTPLY", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3092efa207c9409e8c37ae9600f75f7e_9366/Zapatillas_Dame_Extply_2.0_Negro_GY2439_01_standard.jpg", 79990)

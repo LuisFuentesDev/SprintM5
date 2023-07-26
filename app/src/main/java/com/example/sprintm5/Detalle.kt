@@ -60,9 +60,9 @@ class Detalle : Fragment(), IviewPresenter {
 
     private fun initListener() {
 
-        binging.img.load(param3)
-        binging.txtName.text = param1
-        binging.txtAmount.text = "$$param2"
+        binging.imagenZapatilla.load(param3)
+        binging.textNombre.text = param1
+        binging.textPrecio.text = "$$param2"
         mSharedPreferences = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE)
         gson = Gson()
 
@@ -79,7 +79,7 @@ class Detalle : Fragment(), IviewPresenter {
 
     private fun SaveData() {
 
-        binging.btnComprar.setOnClickListener {
+        binging.botonComprar.setOnClickListener {
 
 
             var nombre = param1.toString()

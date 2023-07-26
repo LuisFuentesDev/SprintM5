@@ -41,7 +41,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
             bundle.putString("nombre", item.nombre)
             bundle.putString("precio", item.precio.toString())
             bundle.putString("url", item.url)
-            binding.cardview.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_nav_shopping_carr_to_detalle, bundle)
             }
