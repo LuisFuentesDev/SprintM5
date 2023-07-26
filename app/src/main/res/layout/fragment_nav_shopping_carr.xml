@@ -35,8 +35,6 @@
         android:layout_width="365dp"
         android:layout_height="573dp"
         android:layout_marginBottom="76dp"
-        android:background="#DA3434"
-        android:backgroundTint="#6BBD38"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

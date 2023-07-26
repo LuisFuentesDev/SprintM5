@@ -27,16 +27,16 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
         return ListZapatillas.size
     }
 
-    fun setData(listazapatoes: List<zapato>) {
-        ListZapatillas = listazapatoes.toMutableList()
+    fun setData(listazapatos: List<zapato>) {
+        ListZapatillas = listazapatos.toMutableList()
     }
 
     inner class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: zapato) {
 
-            binding.txtNombre.text = item.nombre
-            binding.txtPrecio.text = item.precio.toString()
-            binding.imgZapato.load(item.url)
+            binding.textViewNombre.text = item.nombre
+            binding.textViewPrecio.text = item.precio.toString()
+            binding.imageViewZapatilla.load(item.url)
             val bundle = Bundle()
             bundle.putString("nombre", item.nombre)
             bundle.putString("precio", item.precio.toString())

@@ -12,28 +12,25 @@ class AdapterCarro(val eliminar: Eliminar) : RecyclerView.Adapter<AdapterCarro.V
     var ListZapatillas = mutableListOf<zapato>()
 
     private lateinit var mSharedPreferences: SharedPreferences
-    private lateinit var gson: Gson
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterCarro.ViewHolder {
 
         var binding = ItemCarritoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
 
         val item = ListZapatillas[position]
         holder.bind(item)
     }
 
-
     override fun getItemCount(): Int {
         return ListZapatillas.size
     }
 
-    fun setData(listazapatoes: List<zapato>) {
-        ListZapatillas = listazapatoes.toMutableList()
+    fun setData(listazapatos: List<zapato>) {
+        ListZapatillas = listazapatos.toMutableList()
     }
 
     inner class ViewHolder(val binding: ItemCarritoBinding) :
@@ -51,14 +48,10 @@ class AdapterCarro(val eliminar: Eliminar) : RecyclerView.Adapter<AdapterCarro.V
 
                 eliminar.eliminar(item)
 
-
             }
-
 
         }
 
-
     }
-
 
 }
