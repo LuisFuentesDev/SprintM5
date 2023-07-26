@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nav_shopping_carr" >
+    android:background="#025464"
+    tools:context=".nav_shopping_carr">
 
     <ImageView
         android:id="@+id/imgCarrito"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="OFERTA ZAPATILLAS"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
